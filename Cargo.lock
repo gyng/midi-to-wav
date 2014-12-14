@@ -1,0 +1,12 @@
+[root]
+name = "midi-to-wav"
+version = "0.0.1"
+dependencies = [
+ "synthrs 0.0.1 (git+https://github.com/gyng/synthrs)",
+]
+
+[[package]]
+name = "synthrs"
+version = "0.0.1"
+source = "git+https://github.com/gyng/synthrs#9cb1e0cea1df868153e5afadc2eef18763fb686c"
+

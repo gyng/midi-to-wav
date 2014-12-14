@@ -1,0 +1,7 @@
+[package]
+name = "midi-to-wav"
+version = "0.0.1"
+authors = [ "Ng Guoyou" ]
+
+[dependencies.synthrs]
+git = "https://github.com/gyng/synthrs"
