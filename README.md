@@ -1,12 +1,12 @@
 # midi-to-wav
 
-A small program to output MIDI files as a mono WAV with all instruments as square waves (until synthrs upgrades or changes its midi synthesis)
+A small program to output *format0* MIDI files as a mono WAV with all instruments as square waves (until synthrs upgrades or changes its midi synthesis)
 
 ## Usage
 
 Compile
 
-    cargo build
+    cargo build --release
 
 Run
 
