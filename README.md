@@ -1,6 +1,6 @@
 # midi-to-wav
 
-A small program to output *format0* MIDI files as a mono WAV with all instruments as square waves (until synthrs upgrades or changes its midi synthesis)
+A small program to output MIDI files as a mono WAV with all instruments as square waves (until synthrs upgrades or changes its midi synthesis)
 
 ## Usage
 
@@ -10,8 +10,10 @@ Compile
 
 Run
 
-    midi-to-wav input.mid output.wav 120.0
+    midi-to-wav input.mid output.wav
 
 Or compile and run
 
-    cargo run input.mid output.wav [120.0 (BPM)]
+    cargo run --release input.mid output.wav
+
+The `--release` flag is used only for speed.
