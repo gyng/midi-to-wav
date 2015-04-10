@@ -8,5 +8,5 @@ dependencies = [
 [[package]]
 name = "synthrs"
 version = "0.0.1"
-source = "git+https://github.com/gyng/synthrs#e5d819ee3fc378573a12eb24b3a2db230fe49831"
+source = "git+https://github.com/gyng/synthrs#8ad4f490c62c562f4e24efbcbfd08640081a130d"
 

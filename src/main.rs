@@ -1,5 +1,3 @@
-#![feature(env)]
-
 extern crate synthrs;
 
 use std::env;
