@@ -12,7 +12,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "libc"
-version = "0.1.6"
+version = "0.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -26,7 +26,7 @@ dependencies = [
 
 [[package]]
 name = "num-macros"
-version = "0.1.22"
+version = "0.1.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -34,7 +34,7 @@ name = "rand"
 version = "0.3.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "libc 0.1.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "libc 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -45,10 +45,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "synthrs"
 version = "0.0.1"
-source = "git+https://github.com/gyng/synthrs#de047df787be912eaa7f49eb2dbb40cbb716d9f2"
+source = "git+https://github.com/gyng/synthrs#c0e36b775e61236f9de8efeacee0e75a2439d660"
 dependencies = [
  "byteorder 0.3.9 (registry+https://github.com/rust-lang/crates.io-index)",
  "num 0.1.24 (registry+https://github.com/rust-lang/crates.io-index)",
- "num-macros 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)",
+ "num-macros 0.1.23 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
