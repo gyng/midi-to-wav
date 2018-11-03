@@ -1,23 +1,42 @@
 # midi-to-wav
 
-A small program to output MIDI files as a mono WAV with all instruments as whatever [synthrs](https://github.com/gyng/synthrs) has for a default (until synthrs upgrades or changes its MIDI synthesis)
+A small program to output MIDI files as a mono WAV with all instruments changed to whatever [synthrs](https://github.com/gyng/synthrs) has provided
 
 Sample output:
-[Mountain King](https://dl.dropboxusercontent.com/u/38256631/mountainking.ogg),
-[Hungarian No. 2](https://dl.dropboxusercontent.com/u/38256631/liszt-hungarian2.ogg)
+[Mountain King](docs/assets/mountainking.ogg),
+[Mountain King (square)](docs/assets/mountainking-puresquare.ogg),
+[Rustle of Spring](docs/assets/rustle.ogg)
 
 ## Usage
 
-Compile
+```
+midi-to-wav - synthesise MIDI files
 
-    cargo build --release
+midi-to-wav convert input.mid --output output.wav --instrument=square_karplus --envelope
 
-Run
+Usage:
+  midi-to-wav convert <input> [--instrument=<sine_wave>] [--output=<path>] [--envelope]
+  midi-to-wav instruments
+  midi-to-wav (-h | --help)
+  midi-to-wav --version
 
-    midi-to-wav input.mid output.wav
+Options:
+  -h --help                  Show this screen.
+  --version                  Show version.
+  --input                    Path to input MIDI file
+  --output=<path>            Path to output MIDI file, defaults to input.ext.wav
+  --envelope                 Whether to use an attack-decay envelope
+  --instrument=<sine_wave>   Which waveform generator to use (defaults to sine_wave)
+```
 
-Or compile and run
+Example
 
-    cargo run --release input.mid output.wav
+```
+convert tests/assets/octave.mid --output output.wav --instrument=square_wave --envelope
+```
 
-The `--release` flag is used only for speed.
+## Building
+
+```
+cargo build --release
+```
