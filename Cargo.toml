@@ -2,6 +2,8 @@
 name = "midi-to-wav"
 version = "0.0.1"
 authors = [ "Ng Guoyou" ]
+edition = "2018"
 
 [dependencies.synthrs]
 git = "https://github.com/gyng/synthrs"
+rev = "a067f2bee46e5f8593003dc4ad5b6df97bdb3898"

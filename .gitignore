@@ -3,8 +3,11 @@
 /config.stamp
 /Makefile
 /config.mk
+/done
+/out
 
 *.mid
+!/tests/assets/*.mid
 *.wav
 
 # Windows image file caches
