@@ -21,12 +21,12 @@ Usage:
   midi-to-wav --version
 
 Options:
-  -h --help                  Show this screen.
-  --version                  Show version.
-  --input                    Path to input MIDI file
-  --output=<path>            Path to output MIDI file, defaults to input.ext.wav
-  --envelope                 Whether to use an attack-decay envelope
-  --instrument=<square_wave> Which waveform generator to use (defaults to square_wave)
+  -h --help                    Show this screen.
+  --version                    Show version.
+  --input                      Path to input MIDI file
+  --output=<path>              Path to output MIDI file, defaults to input.ext.wav
+  --envelope                   Whether to use an attack-decay envelope
+  --instrument=<square_wave>   Which waveform generator to use (square_wave)
 ```
 
 Example
