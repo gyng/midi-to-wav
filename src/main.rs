@@ -13,7 +13,7 @@ Example:
   midi-to-wav convert input.mid --output output.wav --instrument=square_karplus --envelope
 
 Usage:
-  midi-to-wav convert <input> [--instrument=<sine_wave>] [--output=<path>] [--envelope]
+  midi-to-wav convert <input> [--instrument=<square_wave>] [--output=<path>] [--envelope]
   midi-to-wav instruments
   midi-to-wav (-h | --help)
   midi-to-wav --version
@@ -24,7 +24,7 @@ Options:
   --input                    Path to input MIDI file
   --output=<path>            Path to output MIDI file, defaults to input.ext.wav
   --envelope                 Whether to use an attack-decay envelope
-  --instrument=<sine_wave>   Which waveform generator to use (defaults to sine_wave)
+  --instrument=<square_wave> Which waveform generator to use (defaults to square_wave)
 ";
 
 #[derive(Debug, Deserialize, Clone)]
@@ -45,15 +45,6 @@ fn make_samples(
     envelope: bool,
 ) -> Result<Vec<f64>, synthrs::errors::SynthrsError> {
     match instrument {
-        "square_wave" => make_samples_from_midi_file(wave::square_wave, 44100, envelope, path),
-        "square_wave_karplus" => make_samples_from_midi_file(
-            |frequency: f64| {
-                wave::karplus_strong(wave::square_wave(frequency), 0.01, 1.0, 0.9, 44_100.0)
-            },
-            44100,
-            envelope,
-            path,
-        ),
         "tangent_wave" => make_samples_from_midi_file(wave::tangent_wave, 44100, envelope, path),
         "sawtooth_wave" => make_samples_from_midi_file(wave::sawtooth_wave, 44100, envelope, path),
         "triangle_wave" => make_samples_from_midi_file(wave::triangle_wave, 44100, envelope, path),
@@ -70,6 +61,7 @@ fn make_samples(
             path,
         ),
         "organ" => make_samples_from_midi_file(wave::organ, 44100, envelope, path),
+        "sine_wave" => make_samples_from_midi_file(wave::sine_wave, 44100, envelope, path),
         "sine_wave_karplus" => make_samples_from_midi_file(
             |frequency: f64| {
                 wave::karplus_strong(wave::sine_wave(frequency), 0.01, 1.0, 0.9, 44_100.0)
@@ -78,7 +70,15 @@ fn make_samples(
             envelope,
             path,
         ),
-        "sine_wave" | _ => make_samples_from_midi_file(wave::sine_wave, 44100, envelope, path),
+        "square_wave_karplus" => make_samples_from_midi_file(
+            |frequency: f64| {
+                wave::karplus_strong(wave::square_wave(frequency), 0.01, 1.0, 0.9, 44_100.0)
+            },
+            44100,
+            envelope,
+            path,
+        ),
+        "square_wave" | _ => make_samples_from_midi_file(wave::square_wave, 44100, envelope, path),
     }
 }
 
@@ -89,9 +89,9 @@ fn list_instruments() {
         "organ",
         "sawtooth_wave",
         "sine_wave_karplus",
-        "sine_wave (default)",
+        "sine_wave",
         "square_wave_karplus",
-        "square_wave",
+        "square_wave (default)",
         "tangent_wave",
         "triangle_wave",
     ];
@@ -110,7 +110,7 @@ fn main() -> Result<(), synthrs::errors::SynthrsError> {
             .flag_output
             .unwrap_or(format!("{}{}", &args.arg_input, ".wav"));
 
-        let instrument = &args.flag_instrument.unwrap_or("sine_wave".to_string());
+        let instrument = &args.flag_instrument.unwrap_or("square_wave".to_string());
 
         write_wav(
             output_path,
