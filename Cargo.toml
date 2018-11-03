@@ -11,4 +11,4 @@ serde_derive = "1.0"
 
 [dependencies.synthrs]
 git = "https://github.com/gyng/synthrs"
-rev = "a067f2bee46e5f8593003dc4ad5b6df97bdb3898"
+rev = "9e9724c2a970c1da15147c4ff603c7d24c258abc"
