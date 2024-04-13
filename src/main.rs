@@ -110,10 +110,13 @@ fn main() -> Result<(), synthrs::errors::SynthrsError> {
             .flag_output
             .unwrap_or(format!("{}{}", &args.arg_input, ".wav"));
 
+        // Create a Writer File object from the output path
+        let mut output_file = std::fs::File::create(output_path).ok().expect("failed to create file");
+
         let instrument = &args.flag_instrument.unwrap_or("square_wave".to_string());
 
         write_wav(
-            output_path,
+            &mut output_file,
             44100,
             &quantize_samples::<i16>(&make_samples(
                 &args.arg_input,
